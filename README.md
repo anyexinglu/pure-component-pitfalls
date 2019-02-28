@@ -1,12 +1,14 @@
 ## PureComponent
 
 - Demo1: 直接操作引用对象/数组带来问题，记住 Immutable 数据，直接操作改变 props/state 数据是危险的。
+[官方有相似的例子说明](https://reactjs.org/docs/optimizing-performance.html#examples)
+
 
 - Demo2: 父组件重渲染、纯子组件不渲染
   [Be careful when using Render Props with React.PureComponent](https://reactjs.org/docs/render-props.html#be-careful-when-using-render-props-with-reactpurecomponent) In cases where you cannot define the prop statically (e.g. because you need to close over the component’s props and/or state) <Mouse> should extend React.Component instead.
 
 - Demo3 vs Demo4: 旧 context 的会不更新，新 context 没问题。
-
+<img src="https://share-demo/uploads/f5dda47eec7041c74d80374f4facc9d6/image.png" style="border: 1px solid">
 
 16.3 推出 new Context API，解决 HOC 的 context 传递问题（主要是 SCU 作崇）
 新 api 里，render 不执行，但 consumer 内的函数执行了！
