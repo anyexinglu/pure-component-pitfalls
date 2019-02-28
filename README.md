@@ -8,10 +8,11 @@
   [Be careful when using Render Props with React.PureComponent](https://reactjs.org/docs/render-props.html#be-careful-when-using-render-props-with-reactpurecomponent) In cases where you cannot define the prop statically (e.g. because you need to close over the component’s props and/or state) <Mouse> should extend React.Component instead.
 
 - Demo3 vs Demo4: 旧 context 的会不更新，新 context 没问题。
-<img src="https://share-demo/uploads/f5dda47eec7041c74d80374f4facc9d6/image.png" style="border: 1px solid">
+![image](https://user-images.githubusercontent.com/8243326/53578596-e729bb00-3bb2-11e9-9637-04db10f54e26.png)
+![image](https://user-images.githubusercontent.com/8243326/53578627-f577d700-3bb2-11e9-8a5e-ce248636d8e3.png)
+![image](https://user-images.githubusercontent.com/8243326/53578637-fc064e80-3bb2-11e9-952b-b05e4c0ae15f.png)
 
-16.3 推出 new Context API，解决 HOC 的 context 传递问题（主要是 SCU 作崇）
-新 api 里，render 不执行，但 consumer 内的函数执行了！
+  16.3 推出 new Context API，解决 HOC 的 context 传递问题（主要是 SCU 作崇），新 api 里，render 不执行，但 consumer 内的函数执行了！
 
 - Extra:
   - [Children are all pure](https://reactjs.org/docs/react-api.html#reactpurecomponent)
