@@ -1,3 +1,7 @@
+## 启动
+
+`yarn && yarn start`
+
 ## PureComponent
 
 - Demo1: 直接操作引用对象/数组带来问题，记住 Immutable 数据，直接操作改变 props/state 数据是危险的。
@@ -14,19 +18,19 @@
 
   16.3 推出 new Context API，解决 HOC 的 context 传递问题（主要是 SCU 作崇），新 api 里，render 不执行，但 consumer 内的函数执行了！
 
+- Demo5: [wrong use] 频繁更新不需要 Pure —— 大家知道，对于纯子组件来说，父组件 render 时传入的 props 为实时生成的对象/数组（如`<Box x={{y: 1}} />`或`<Box x={array.map(f)} />`中的`x`），那 shouldComponentUpdate 浅比较这个 props，每次返回 true，就没必要用 PureComponent 了。但未必注意到，props 如果传入的是 jsx，浅比较也是每次返回 true。
+
+```jsx
+    <Box1>
+      <span>嘿嘿嘿你好呀</span>
+    </Box1>
+    <Box2 content={<span>嘿嘿嘿你好呀</span>} />
+```
+
 - Extra:
   - [Children are all pure](https://reactjs.org/docs/react-api.html#reactpurecomponent)
     Furthermore, React.PureComponent’s shouldComponentUpdate() skips prop updates for the whole component subtree. Make sure all the children components are also “pure”.
-  - [Wrong use]
-  ```jsx
-    <Box x={{y: 1}} />
-    <Box x={array.map(f)} />
-    <Box>
-      <span>Hello, world!</span>
-    </Box>
-  ```
-  频繁更新不需要 Pure
-  - shouldComponentUpdate 一般不需要 Pure
+  - 自己写了 shouldComponentUpdate 的组件，一般不需要 Pure
 
 
 ## Reference
